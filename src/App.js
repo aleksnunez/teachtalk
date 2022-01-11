@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
+import styled from 'styled-components';
 
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 
 import {
   BrowserRouter as Router,
@@ -9,15 +11,19 @@ import {
   Route,
 } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Router>
         <>
-        <Routes>
-          <Route  exact path="/" element={<Header />}>
-          </Route>
-        </Routes>
+        <Header />
+        <AppBody>
+          <Sidebar />
+          <Routes>
+            <Route  exact path="/">
+            </Route>
+          </Routes>
+        </AppBody>
         </>
     </Router>
     </div>
@@ -25,3 +31,9 @@ function App() {
 }
 
 export default App;
+
+const AppBody = styled.div`
+  display: flex;
+  height: 100vh;
+  
+`
