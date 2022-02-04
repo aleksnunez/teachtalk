@@ -1,6 +1,7 @@
 import { 
     Create, 
     FiberManualRecordRounded } from "@material-ui/icons";
+
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
@@ -47,7 +48,7 @@ export const SidebarInfo = styled.div`
 
 export const SidebarCreateIcon = styled(Create)`
   color: #484a47;
-  margin-left: 30px;
+  margin-left: 40px;
 `;
 
 export const SidebarStatusIcon = styled(FiberManualRecordRounded)`

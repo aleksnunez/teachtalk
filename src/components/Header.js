@@ -1,11 +1,12 @@
 import React from 'react'
 import SearchIcon from '@material-ui/icons/Search';
 
-import {HeaderLeft, 
+import {
+    HeaderLeft, 
     HeaderRight, 
     HeaderContainer, 
     HeaderAvatar, 
-    HeaderSearch} from './header.style'
+    HeaderSearch } from './header.style'
 
 const Header = () => {
     return (

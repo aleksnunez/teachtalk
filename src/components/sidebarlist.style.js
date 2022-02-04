@@ -12,6 +12,9 @@ export const SidebarListContainer = styled.div`
 
 `;
 
-export const SidebarListChannel = styled.div`
+export const SidebarListChannel = styled.h3`
+    padding: 10px 0;
+    margin-left: 10px;
+    font-weight: 600;
 
 `;

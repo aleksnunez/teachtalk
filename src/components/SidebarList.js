@@ -1,8 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-import { db } from '../firebase';
+import { useDispatch } from 'react-redux';
+import { enterRoom } from '../features/counter/counterSlice';
 
-const SidebarList = ({ Icon, title, addChannelButton }) => {
+import { db } from '../firebase';
+import { SidebarListContainer, SidebarListChannel } from "./sidebarlist.style";
+
+const SidebarList = ({ Icon, title, addChannelButton, id }) => {
+    const dispatch = useDispatch();
+    
     const addChannel = () => {
         const channelName = prompt('give your channel a name: ');
         if(channelName) {
@@ -13,9 +18,13 @@ const SidebarList = ({ Icon, title, addChannelButton }) => {
     }
 
     const selectChannel = () => {
-        
-    }
+         if(id) {
+             dispatch(enterRoom({
+                 roomId: id
+             }))
 
+         }
+    }
     return (
         <SidebarListContainer
             onClick={addChannelButton ? addChannel : selectChannel}
@@ -25,7 +34,7 @@ const SidebarList = ({ Icon, title, addChannelButton }) => {
                 <h3>{title}</h3>
             ):(
                 <SidebarListChannel>
-                    {title}
+                    <span>#</span> {title}
                 </SidebarListChannel>
             )}
         </SidebarListContainer>
@@ -36,18 +45,3 @@ const SidebarList = ({ Icon, title, addChannelButton }) => {
 export default SidebarList
 
 
-const SidebarListContainer = styled.div`
-    display: flex;
-    align-items: center;
-    font-size: small;
-    cursor: pointer;
-    :hover {
-        opacity: 0.7;
-        background-color: #e88873;
-    }
-
-`;
-
-const SidebarListChannel = styled.div`
-
-`;

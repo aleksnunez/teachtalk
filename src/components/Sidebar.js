@@ -7,23 +7,25 @@ import { Add, AppsRounded,
   InsertComment, 
   PeopleAltRounded } from "@material-ui/icons";
 
-import React from "react";
 import { 
   SidebarContainer, 
   SidebarHeader, 
   SidebarInfo, 
-  SidebarCreateIcon, 
   SidebarStatusIcon } from "./sidebar.style";
 import SidebarList from "./SidebarList";
 
+import React from "react";
+import { useCollection } from "react-firebase-hooks/firestore"
+import { db } from '../firebase';
+
 const Sidebar = () => {
+  const [channel, loading, error] = useCollection(db.collection('rooms'));
   return (
     <SidebarContainer>
       <SidebarHeader>
         <SidebarInfo>
           <h2>
             teachtalk
-            <SidebarCreateIcon />
           </h2>
           <h3>
             <SidebarStatusIcon />
@@ -42,6 +44,13 @@ const Sidebar = () => {
       <SidebarList Icon={ExpandLessRounded} title="show less" />
       <hr />
       <SidebarList Icon={Add} addChannelButton title="add channel" />
+
+      {channel?.docs.map(doc => (
+        <SidebarList 
+        key={doc.id} 
+        id={doc.id} 
+        title={doc.data().name} />
+      ))}
     </SidebarContainer>
   );
 };
