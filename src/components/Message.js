@@ -7,8 +7,8 @@ const Message = ({ message, timestamp, user, userImage }) => {
   return (
     <MessageContainer>
         <img 
-        src="https://images.pexels.com/photos/8197497/pexels-photo-8197497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-        alt="teacher writing on chalkboard" />
+        src={userImage}
+        alt="user image" />
         <MessageInfo>
             <h4>
                 {user}{' '}
