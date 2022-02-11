@@ -15,6 +15,8 @@ export const ChatInputContainer = styled.div`
         bottom: 30px;
         width: 60%;
         padding: 20px;
+        border-radius: 10px;
+        border-width: 0.1px;
         
         
     }
