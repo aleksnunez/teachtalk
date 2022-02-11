@@ -8,7 +8,7 @@ import {
     HeaderContainer, 
     HeaderAvatar, 
     HeaderSearch } from './header.style'
-import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { auth } from '../firebase';
 
 const Header = () => {
