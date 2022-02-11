@@ -1,25 +1,27 @@
 import {Button}  from '@mui/material';
 import React, { useState } from 'react';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 import firebase from 'firebase/compat/app';
 
 import { ChatInputContainer } from "./chatinput.style"
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ChatInput = ({channelName, channelId}) => {
     const [input, setInput] = useState('');
+    const [user] = useAuthState(auth)
+
 
     const sendMessage = e => {
         e.preventDefault();
 
-        console.log(channelId);
         if(!channelId) {
             return false;
         }
         db.collection('rooms').doc(channelId).collection('messages').add({
             message: input,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            user: 'Alex',
-            userImage: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fpng&psig=AOvVaw0rWKRHfLXn0XTE50eWjirt&ust=1644100273304000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOCX5_iM5_UCFQAAAAAdAAAAABAD'
+            user: user.displayName,
+            userImage:"https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         })
         setInput('');
     }
@@ -30,7 +32,7 @@ const ChatInput = ({channelName, channelId}) => {
             <input
             value={input}
             onChange={e => setInput(e.target.value)} 
-            placeholder={`Message #$ROOM`}/>
+            placeholder={`Message #${channelName}`}/>
 
             <Button hidden type='submit' onClick={sendMessage}>
                 send
