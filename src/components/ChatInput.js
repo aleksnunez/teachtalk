@@ -21,7 +21,7 @@ const ChatInput = ({channelName, channelId}) => {
             message: input,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             user: user.displayName,
-            userImage:"https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            userImage: user.photoURL
         })
         setInput('');
     }
