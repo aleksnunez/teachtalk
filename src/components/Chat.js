@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { selectRoomId } from '/Users/alexandernunez/Development/teachtalk/src/features/counter/counterSlice.js'
 import { useDocument, useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase';
+import Message from './Message';
 
 
 const Chat = () => {
@@ -25,15 +26,12 @@ const Chat = () => {
       roomId && db.collection('rooms').doc(roomId).collection('messages').orderBy('timestamp', 'asc')
     )
 
-    console.log(roomDetails?.data());
-    console.log(roomMessages);
-
   return  (
         <ChatContainer>
           <>
             <Header >
               <HeaderLeft>
-                <h4><strong>#Room-name</strong></h4>
+                <h4><strong>#{roomDetails?.data().name}</strong></h4>
                 <School style={{
                   marginLeft: "10px",
                   fontSize: "18px"
@@ -49,12 +47,23 @@ const Chat = () => {
                 </p>
               </HeaderRight>
             </Header>
-
             <ChatMessages>
-
+              {roomMessages?.docs.map(doc => {
+                const {message, timestamp, user, userImage} = doc.data();
+                return (
+                  <Message
+                    key={doc.id}
+                    message={message}
+                    timestamp={timestamp}
+                    user={user}
+                    userImage={userImage}
+                  />
+                )
+              })}
             </ChatMessages>
             <ChatInput 
               channelName={roomDetails?.data().name}
+              channelId={roomId}
             />
             </>
         </ChatContainer>
@@ -62,4 +71,3 @@ const Chat = () => {
 };
 
 export default Chat;
-
