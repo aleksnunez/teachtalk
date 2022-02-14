@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { auth, db } from '../firebase';
 import firebase from 'firebase/compat/app';
 
-import { ChatInputContainer } from "./chatinput.style"
+import { ChatInputContainer } from "../styles/chatinput.style"
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ChatInput = ({channelName, channelId}) => {

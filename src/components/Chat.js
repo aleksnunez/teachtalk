@@ -6,7 +6,7 @@ import {
   Header, 
   HeaderLeft, 
   HeaderRight, 
-  ChatMessages } from './chat.style';
+  ChatMessages } from '../styles/chat.style';
   import ChatInput from './ChatInput';
 
 import { useSelector } from 'react-redux';

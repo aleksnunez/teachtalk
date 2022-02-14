@@ -7,7 +7,7 @@ import {
     HeaderRight, 
     HeaderContainer, 
     HeaderAvatar, 
-    HeaderSearch } from './header.style'
+    HeaderSearch } from '../styles/header.style'
 
 import { auth } from '../firebase';
 

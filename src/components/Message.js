@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MessageContainer, MessageInfo } from './message.style'
+import { MessageContainer, MessageInfo } from '../styles/message.style'
 
 const Message = ({ message, timestamp, user, userImage }) => {
     console.log(userImage);

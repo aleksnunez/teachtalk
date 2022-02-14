@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { enterRoom } from '../features/counter/counterSlice';
 
 import { db } from '../firebase';
-import { SidebarListContainer, SidebarListChannel } from "./sidebarlist.style";
+import { SidebarListContainer, SidebarListChannel } from "../styles/sidebarlist.style";
 
 const SidebarList = ({ Icon, title, addChannelButton, id }) => {
     const dispatch = useDispatch();

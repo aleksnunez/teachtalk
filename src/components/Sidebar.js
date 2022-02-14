@@ -4,7 +4,7 @@ import {
   SidebarContainer, 
   SidebarHeader, 
   SidebarInfo, 
-  SidebarStatusIcon } from "./sidebar.style";
+  SidebarStatusIcon } from "../styles/sidebar.style";
 import SidebarList from "./SidebarList";
 
 import React from "react";
