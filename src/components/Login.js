@@ -3,7 +3,7 @@ import myImage from "../assets/trans_csed.png"
 
 import { Button } from '@mui/material'
 
-import { LoginContainer, LoginInnerContainer } from './login.style'
+import { LoginContainer, LoginInnerContainer } from '../styles/login.style'
 import { Box } from '@mui/system'
 import { auth, provider } from '../firebase'
 
