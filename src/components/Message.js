@@ -8,7 +8,7 @@ const Message = ({ message, timestamp, user, userImage }) => {
     <MessageContainer>
         <img 
         src={userImage}
-        alt="user image" />
+        alt="user" />
         <MessageInfo>
             <h4>
                 {user}{' '}
